@@ -25,6 +25,16 @@ func set_time(time, pause_time = true):
 	self.time = time
 	if pause_time:
 		self.paused = true
+	
+	if time < 20:
+		var parity = int(time) % 2
+		if parity == 0:
+			label.label_settings.font_color = Color.RED
+		else:
+			label.label_settings.font_color = Color.YELLOW
+	else:
+		label.label_settings.font_color = Color.from_string("#00ca00", Color.GREEN)
+	
 	label.text = format_time(time)
 
 func format_time(time: float) -> String:
