@@ -48,7 +48,7 @@ label_settings = SubResource("LabelSettings_krrt7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TimerArea"]
+[node name="TimeButtons" type="HBoxContainer" parent="TimerArea"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -58,32 +58,49 @@ offset_top = 10.0
 offset_bottom = 50.0
 alignment = 1
 
-[node name="Button" type="Button" parent="TimerArea/HBoxContainer"]
+[node name="Button" type="Button" parent="TimerArea/TimeButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1:00"
 metadata/value = 60
 
-[node name="Button2" type="Button" parent="TimerArea/HBoxContainer"]
+[node name="Button2" type="Button" parent="TimerArea/TimeButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1:30"
 metadata/value = 90
 
-[node name="Button3" type="Button" parent="TimerArea/HBoxContainer"]
+[node name="Button3" type="Button" parent="TimerArea/TimeButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "2:00"
 metadata/value = 120
 
-[node name="Button4" type="Button" parent="TimerArea/HBoxContainer"]
+[node name="Button4" type="Button" parent="TimerArea/TimeButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "2:30"
 metadata/value = 150
 
-[node name="Button5" type="Button" parent="TimerArea/HBoxContainer"]
+[node name="Button5" type="Button" parent="TimerArea/TimeButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "3:00"
 metadata/value = 180
+
+[node name="TimeControls" type="VBoxContainer" parent="TimerArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = 50.0
+
+[node name="StartPause" type="Button" parent="TimerArea/TimeControls"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Stop" type="Button" parent="TimerArea/TimeControls"]
+layout_mode = 2
+size_flags_vertical = 3

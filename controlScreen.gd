@@ -1,7 +1,7 @@
 extends Control
 
 @onready var timer = $TimerArea
-@onready var timeButtons = $TimerArea/HBoxContainer
+@onready var timeButtons = $TimerArea/TimeButtons
 
 func _ready() -> void:
 	for button in timeButtons.get_children():
