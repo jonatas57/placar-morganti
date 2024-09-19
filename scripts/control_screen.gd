@@ -5,7 +5,7 @@ extends Control
 @onready var display_button = $Button
 @onready var display_window: Window = $DisplayWindow
 
-var display_screen = preload("res://display.tscn")
+var display_screen = preload("res://scenes/display.tscn")
 
 
 func _ready() -> void:
@@ -18,7 +18,7 @@ func _ready() -> void:
 	display_window.add_child(display_instance)
 	display_window.connect("close_requested", self.toggle_display_screen)
 	
-	timer.timer_instances.append(display_instance.get_node(NodePath("VBoxContainer/ColorRect/Timer")))
+	timer.timer_instances.append(display_instance.timer_label)
 
 func toggle_display_screen():
 	if display_window.is_visible():

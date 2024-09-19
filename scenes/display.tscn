@@ -1,19 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://8wp1qvgfxcj5"]
+[gd_scene load_steps=4 format=3 uid="uid://8wp1qvgfxcj5"]
+
+[ext_resource type="Script" path="res://scripts/display.gd" id="1_6thyt"]
+[ext_resource type="Texture2D" uid="uid://rx5dhkpnur34" path="res://textures/morganti-logo.png" id="2_abx0k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_274ar"]
 line_spacing = 0.0
 font_size = 234
 font_color = Color(0, 0.792157, 0, 1)
 
-[node name="Display" type="Control"]
+[node name="Display" type="Control" node_paths=PackedStringArray("timer_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6thyt")
+timer_label = NodePath("Container/BottomRow/Timer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Container" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,12 +26,60 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+[node name="TopRow" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="Container/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+color = Color(0.709804, 0, 0, 1)
+
+[node name="Control" type="Control" parent="Container/TopRow"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="ColorRect2" type="ColorRect" parent="Container/TopRow/Control"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Container/TopRow/Control/ColorRect2"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
+texture = ExtResource("2_abx0k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ColorRect3" type="ColorRect" parent="Container/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="BottomRow" type="ColorRect" parent="Container"]
 layout_mode = 2
 size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
 
-[node name="Timer" type="Label" parent="VBoxContainer/ColorRect"]
+[node name="Timer" type="Label" parent="Container/BottomRow"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
