@@ -104,3 +104,19 @@ size_flags_vertical = 3
 [node name="Stop" type="Button" parent="TimerArea/TimeControls"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 469.0
+offset_right = 804.0
+offset_bottom = 585.0
+
+[node name="DisplayWindow" type="Window" parent="."]
+disable_3d = true
+title = "Morganti Ju-Jitsu"
+position = Vector2i(176, 24)
+size = Vector2i(800, 600)
+visible = false
+transient = true
+force_native = true
