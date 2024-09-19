@@ -17,6 +17,8 @@ func _ready() -> void:
 	var display_instance = display_screen.instantiate()
 	display_window.add_child(display_instance)
 	display_window.connect("close_requested", self.toggle_display_screen)
+	
+	timer.timerInstances.append(display_instance.get_node(NodePath("VBoxContainer/ColorRect/Timer")))
 
 func toggle_display_screen():
 	if display_window.is_visible():

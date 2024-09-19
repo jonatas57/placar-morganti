@@ -1,8 +1,9 @@
 extends Control
 
-@onready var label = $Timer
 @onready var playButton = $TimeControls/StartPause
 @onready var stopButton = $TimeControls/Stop
+
+var timerInstances: Array[Label] = []
 
 var time: float = 0
 var paused: bool = true
@@ -10,6 +11,7 @@ var paused: bool = true
 func _ready() -> void:
 	playButton.connect("pressed", self.pause_resume)
 	stopButton.connect("pressed", self.reset)
+	timerInstances.append($Timer)
 
 func _process(delta: float) -> void:
 	if self.paused:
@@ -26,16 +28,20 @@ func set_time(time, pause_time = true):
 	if pause_time:
 		self.paused = true
 	
+	var text: String = format_time(time)
+	var color: Color = Color.from_string("#00ca00", Color.GREEN)
 	if time < 20:
 		var parity = int(time) % 2
 		if parity == 0:
-			label.label_settings.font_color = Color.RED
+			color = Color.RED
 		else:
-			label.label_settings.font_color = Color.YELLOW
+			color = Color.YELLOW
 	else:
-		label.label_settings.font_color = Color.from_string("#00ca00", Color.GREEN)
+		color = Color.from_string("#00ca00", Color.GREEN)
 	
-	label.text = format_time(time)
+	for label in timerInstances:
+		label.text = text
+		label.label_settings.font_color = color
 
 func format_time(time: float) -> String:
 	var minutes = int(time / 60)
