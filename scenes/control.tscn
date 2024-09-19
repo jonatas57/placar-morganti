@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7yavh1fnbrh4"]
 
-[ext_resource type="Script" path="res://controlScreen.gd" id="1_8u7iq"]
-[ext_resource type="Script" path="res://timer.gd" id="2_8vt83"]
+[ext_resource type="Script" path="res://scripts/control_screen.gd" id="1_un3su"]
+[ext_resource type="Script" path="res://scripts/timer.gd" id="2_txnpk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_krrt7"]
 font_size = 80
@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8u7iq")
+script = ExtResource("1_un3su")
 
 [node name="TimerArea" type="Control" parent="."]
 layout_mode = 1
@@ -25,7 +25,7 @@ anchor_bottom = 0.25
 offset_left = -120.0
 offset_right = 120.0
 grow_horizontal = 2
-script = ExtResource("2_8vt83")
+script = ExtResource("2_txnpk")
 
 [node name="Background" type="ColorRect" parent="TimerArea"]
 layout_mode = 1
