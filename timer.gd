@@ -1,17 +1,17 @@
 extends Control
 
-@onready var playButton = $TimeControls/StartPause
-@onready var stopButton = $TimeControls/Stop
+@onready var play_button = $TimeControls/StartPause
+@onready var stop_button = $TimeControls/Stop
 
-var timerInstances: Array[Label] = []
+var timer_instances: Array[Label] = []
 
 var time: float = 0
 var paused: bool = true
 
 func _ready() -> void:
-	playButton.connect("pressed", self.pause_resume)
-	stopButton.connect("pressed", self.reset)
-	timerInstances.append($Timer)
+	play_button.connect("pressed", self.pause_resume)
+	stop_button.connect("pressed", self.reset)
+	timer_instances.append($Timer)
 
 func _process(delta: float) -> void:
 	if self.paused:
@@ -39,7 +39,7 @@ func set_time(time, pause_time = true):
 	else:
 		color = Color.from_string("#00ca00", Color.GREEN)
 	
-	for label in timerInstances:
+	for label in timer_instances:
 		label.text = text
 		label.label_settings.font_color = color
 
