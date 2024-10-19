@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func set_text(text: String) -> void:
 	label.text = text
+	viewport.size.x = text.length() * 128
 
 func set_text_color(color: Color) -> void:
 	label.label_settings.font_color = color

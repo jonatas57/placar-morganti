@@ -26,6 +26,7 @@ func setupFighters():
 	$IncreaseWhiteScore.connect("pressed", func (): self.whiteFigther.increase_score())
 
 func setupTimerButtons():
+	timer.set_time(180)
 	for button in time_buttons.get_children():
 		button.connect('button_down', func (): timer.set_time(button.get_meta('value', 0)))
 
@@ -34,7 +35,7 @@ func setupDisplayScreen():
 	self.display = display_screen.instantiate()
 	display_window.add_child(self.display)
 	display_window.connect("close_requested", self.toggle_display_screen)
-	timer.timer_instances.append(self.display.timer_label)
+	timer.timer_instances.append(self.display.timer_display)
 
 func toggle_display_screen():
 	if display_window.is_visible():

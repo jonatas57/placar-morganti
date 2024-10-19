@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 128.8)
 texture = SubResource("ViewportTexture_f8vvm")
-expand_mode = 1
+expand_mode = 2
 stretch_mode = 5
 
 [node name="SubViewport" type="SubViewport" parent="TextureRect"]

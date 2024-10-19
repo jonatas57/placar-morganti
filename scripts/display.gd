@@ -1,10 +1,9 @@
 extends Control
 
-@export var timer_label: Label
+@onready var timer_display: Text = $Container/BottomRow/Timer
 
 @onready var redScore: Text = $Container/TopRow/ColorRect/RedScore
 @onready var whiteScore: Text = $Container/TopRow/ColorRect3/WhiteScore
-
 
 func _ready() -> void:
 	$Container.add_theme_constant_override("separation", 0)

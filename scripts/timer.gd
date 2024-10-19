@@ -3,7 +3,7 @@ extends Control
 @onready var play_button = $TimeControls/StartPause
 @onready var stop_button = $TimeControls/Stop
 
-var timer_instances: Array[Label] = []
+var timer_instances: Array[Text] = []
 
 var time: float = 0
 var paused: bool = true
@@ -39,9 +39,9 @@ func set_time(time, pause_time = true):
 	else:
 		color = Color.from_string("#00ca00", Color.GREEN)
 	
-	for label in timer_instances:
-		label.text = text
-		label.label_settings.font_color = color
+	for timer in timer_instances:
+		timer.set_text(text)
+		timer.set_text_color(color)
 
 func format_time(time: float) -> String:
 	var minutes = int(time / 60)
