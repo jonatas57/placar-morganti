@@ -1,21 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://8wp1qvgfxcj5"]
+[gd_scene load_steps=5 format=3 uid="uid://8wp1qvgfxcj5"]
 
 [ext_resource type="Script" path="res://scripts/display.gd" id="1_6thyt"]
 [ext_resource type="Texture2D" uid="uid://rx5dhkpnur34" path="res://textures/morganti-logo.png" id="2_abx0k"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_o0msx"]
-font_size = 220
-
-[sub_resource type="LabelSettings" id="LabelSettings_vagk5"]
-font_size = 220
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://ck1k60ghnv6yn" path="res://scenes/text.tscn" id="3_arlxx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_274ar"]
 line_spacing = 0.0
 font_size = 234
 font_color = Color(0, 0.792157, 0, 1)
 
-[node name="Display" type="Control" node_paths=PackedStringArray("timer_label", "redScore", "whiteScore")]
+[node name="Display" type="Control" node_paths=PackedStringArray("timer_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,8 +18,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6thyt")
 timer_label = NodePath("Container/BottomRow/Timer")
-redScore = NodePath("Container/TopRow/ColorRect/RedScore")
-whiteScore = NodePath("Container/TopRow/ColorRect3/WhiteScore")
 
 [node name="Container" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -46,20 +38,13 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
 color = Color(0.709804, 0, 0, 1)
 
-[node name="RedScore" type="Label" parent="Container/TopRow/ColorRect"]
+[node name="RedScore" parent="Container/TopRow/ColorRect" instance=ExtResource("3_arlxx")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.25
-anchor_top = 0.5
-anchor_right = 0.25
-anchor_bottom = 0.5
-offset_left = -62.5
-offset_top = -148.0
-offset_right = 63.5
-offset_bottom = 153.0
-pivot_offset = Vector2(63, 150)
-text = "0"
-label_settings = SubResource("LabelSettings_o0msx")
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.4
+anchor_bottom = 0.9
 
 [node name="Control" type="Control" parent="Container/TopRow"]
 clip_contents = true
@@ -98,20 +83,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.4
 
-[node name="WhiteScore" type="Label" parent="Container/TopRow/ColorRect3"]
+[node name="WhiteScore" parent="Container/TopRow/ColorRect3" instance=ExtResource("3_arlxx")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.75
-anchor_top = 0.5
-anchor_right = 0.75
-anchor_bottom = 0.5
-offset_left = -63.0
-offset_top = -150.0
-offset_right = 63.0
-offset_bottom = 151.0
-pivot_offset = Vector2(63, 150)
-text = "0"
-label_settings = SubResource("LabelSettings_vagk5")
+anchor_left = 0.6
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
 
 [node name="BottomRow" type="ColorRect" parent="Container"]
 layout_mode = 2

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck1k60ghnv6yn"]
+
+[ext_resource type="Script" path="res://text.gd" id="1_y284y"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_f8vvm"]
+viewport_path = NodePath("TextureRect/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_v34m1"]
+font_size = 256
+
+[node name="Text" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y284y")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 128.8)
+texture = SubResource("ViewportTexture_f8vvm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SubViewport" type="SubViewport" parent="TextureRect"]
+transparent_bg = true
+size = Vector2i(128, 256)
+
+[node name="Label" type="Label" parent="TextureRect/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_v34m1")
+horizontal_alignment = 1
+vertical_alignment = 1

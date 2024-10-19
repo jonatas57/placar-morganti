@@ -2,35 +2,35 @@ class_name Fighter
 extends Node
 
 var score: int = 0
-var faults: int = 0
+var penaulties: int = 0
 
-var labels: Array[Label] = []
+var score_displays: Array[Text] = []
 
-func addLabel(label: Label):
-	labels.append(label)
+func add_score_display(score: Text):
+	score_displays.append(score)
 
-func increaseScore():
+func increase_score():
 	if score == MatchConfiguration.MAX_FIGHTER_SCORE:
 		return
 	score += 1
-	updateLabels()
+	update_displays()
 
-func decreaseScore():
+func decrease_score():
 	if score == 0:
 		return
 	score -= 1
-	updateLabels()
+	update_displays()
 
-func giveFault():
-	if faults == MatchConfiguration.MAX_FIGHTER_FAULTS:
+func give_penalty():
+	if penaulties == MatchConfiguration.MAX_FIGHTER_PENAULTIES:
 		return
-	faults += 1
+	penaulties += 1
 
-func removeFault():
-	if faults == 0:
+func remove_penaulty():
+	if penaulties == 0:
 		return
-	faults += 1
+	penaulties += 1
 
-func updateLabels():
-	for label in labels:
-		label.text = "%d" % score
+func update_displays():
+	for display in score_displays:
+		display.set_text("%d" % score)

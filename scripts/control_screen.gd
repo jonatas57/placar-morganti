@@ -19,11 +19,11 @@ func _ready() -> void:
 
 func setupFighters():
 	self.redFighter = Fighter.new()
-	self.redFighter.addLabel(display.redScore)
-	$IncreaseRedScore.connect("pressed", func (): self.redFighter.increaseScore())
+	self.redFighter.add_score_display(display.redScore)
+	$IncreaseRedScore.connect("pressed", func (): self.redFighter.increase_score())
 	self.whiteFigther = Fighter.new()
-	self.whiteFigther.addLabel((display.whiteScore))
-	$IncreaseWhiteScore.connect("pressed", func (): self.whiteFigther.increaseScore())
+	self.whiteFigther.add_score_display((display.whiteScore))
+	$IncreaseWhiteScore.connect("pressed", func (): self.whiteFigther.increase_score())
 
 func setupTimerButtons():
 	for button in time_buttons.get_children():
